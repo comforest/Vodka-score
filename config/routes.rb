@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'mahjong/recordWhole'
+
+  get 'mahjong/recordPerson'
+
+  get 'mahjong/recordWrite'
+
+  post 'mahjong/recordWrite_activity'
+  post 'mahjong/recordWrite_check'
+
+  get 'mahjong/register'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

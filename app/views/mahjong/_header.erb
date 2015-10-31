@@ -1,0 +1,45 @@
+<div id="header">
+	<a href="tichu.html">티츄보기</a>
+</div>
+
+<div id="title">
+	<img src="/assets/icon.png" width=100px>
+</div>
+
+<div id="menu">
+
+
+	<button class="menu menu-1">전체 기록
+		<div class="listbox">
+			<ul>
+				<a href="/mahjong/recordWhole">
+					<li>전체 기록</li>
+				</a>
+				<a href="#">
+					<li>월별 기록</li>
+				</a>
+				<a href="#">
+					<li>일별 기록</li>
+				</a>
+			</ul>
+		</div>
+	</button>
+	<a href="/mahjong/recordPerson"><button class="menu">개인 기록</button></a>
+	<a href="/mahjong/recordWrite"><button class="menu">점수 기록</button></a>
+	<a href="/mahjong/register"><button class="menu">회원 등록</button></a>
+
+
+</div>
+
+<script>
+jQuery(document).ready(function($) {
+    $("#menu .menu-1").click(function(event){
+        var list1 = $(this).children(":hidden");
+        var list2 = $(this).children(":visible");
+
+        list1.show();
+        list2.hide();
+        
+    })
+});
+</script>

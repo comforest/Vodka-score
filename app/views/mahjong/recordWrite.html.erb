@@ -1,0 +1,41 @@
+<%= render :partial => "mahjong/header" %>
+
+<div id="record_write">
+    <table>
+        <tr>
+            <td></td>
+            <td>이름</td>
+            <td></td>
+            <td>점수</td>
+        </tr>
+        
+        <form action="/mahjong/recordWrite_check" method ="POST">
+            <% location = ["東", "南", "西", "北"] %>
+            <% for i in (0..3) do %>
+                <tr>
+                    <td><%= location[i] %></td>
+                    <td><input class="txtName txtName-<%= i %>" type="text" name="name<%=i%>"></td>
+                    <td>
+                        <select class="userList">
+                            <option>선택</option>
+                            <% @userlist.each do |u| %>
+                            <option value="<%= u.name %>"><%= u.name %></option>
+                            <% end %>
+                        </select>
+                    </td>
+                    <td><input class="txtScore txtScore-<%= i %>" type="text" name="score<%=i%>"></td>
+                </tr>
+            <% end %>
+            
+            
+            <tr>
+                <td></td> <td></td> <td></td>
+                <td><input class="totalScore" type="text" value=0 readonly></td>
+            </tr>
+            <tr>
+                <td></td> <td></td> <td></td>
+                <td><input type="submit" value="전송"></td>
+            </tr>
+        </form>
+    </table>
+</div>
