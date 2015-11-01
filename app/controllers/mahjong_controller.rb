@@ -13,6 +13,7 @@ class MahjongController < ApplicationController
     when 'day'
       data = GameMahjong.where(:year => Time.now.year, :month => Time.now.month, :day => Time.now.day)
     end
+      
     
     @data = []
     
@@ -58,6 +59,8 @@ class MahjongController < ApplicationController
   def recordPerson
   end
   
+  
+  
   def recordWrite
     @userlist = User.all
     @userlist = @userlist.sort_by {|a| a["name"]}
@@ -87,18 +90,18 @@ class MahjongController < ApplicationController
     
     for i in (0..3) do
       for j in (0..3) do
-        if params["score"+i.to_s] > params["score"+j.to_s] || (params["score"+i.to_s] == params["score"+j.to_s] && i > j )
+        if params["score"+i.to_s].to_i < params["score"+j.to_s].to_i || (params["score"+i.to_s].to_i == params["score"+j.to_s].to_i && i > j )
           gamePart[i].rank += 1
         end
       end
       gamePart[i].save
     end
       
-    redirect_to "/mahjong/recordWhole"
+    redirect_to "/mahjong/recordWhole/month"
   end
   
   def recordWrite_activity
-    redirect_to "/mahjong/recordWhole"
+    redirect_to "/mahjong/recordWhole/month"
     #render :text => ""
   end
 
@@ -106,4 +109,11 @@ class MahjongController < ApplicationController
     
   end
 
+  def register_activity
+    user = User.new
+    user.name = params["name"]
+    user.save
+    
+    redirect_to "/mahjong/recordWhole/month"
+  end
 end

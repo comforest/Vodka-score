@@ -54,16 +54,19 @@ body{
 #menu .listbox li{
 	line-height: 50px;
 	list-style: none;
-	color: #fff;
+	color: #000;
 }
 
+
+.container{
+	height: 100%;
+	margin: 1% 4%;
+}
 
 /*--------------------------- record_whole --------------- */
 
 #record_whole{
 	background-color: #fff;
-	height: 100%;
-	margin: 1% 4%;
 }
 
 #record_whole td{
@@ -73,10 +76,7 @@ body{
 
 
 /*--------------------------- record_write --------------- */
-#record_write{
-	margin: 1% 4%;
-	
-}
+
 
 #record_write table{
 	width: 100%;

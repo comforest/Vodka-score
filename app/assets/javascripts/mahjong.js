@@ -8,6 +8,8 @@ jQuery(document).ready(function($) {
         $(".totalScore").val(sum);
     })
     $("#record_write select").change(function(){
+        
+        
         var box = $(this).parent().prev().children();
         if($(this).val() != "선택")
             box.val($(this).val());
@@ -20,7 +22,6 @@ jQuery(document).ready(function($) {
         
         
         for(var i = 1; i < box.children().length; ++i){
-            console.log(txt.localeCompare(box.children(":eq("+i+1+")").val()))
             
             if(txt == box.children().eq(i).val()){
                 box.children().eq(i).attr("selected", "ture");

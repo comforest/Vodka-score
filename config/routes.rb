@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'mahjong#recordWhole#month'
   
   get 'mahjong/recordWhole/:id' , to: 'mahjong#recordWhole'
+  
   get 'mahjong/recordPerson'
 
   get 'mahjong/recordWrite'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   post 'mahjong/recordWrite_check'
 
   get 'mahjong/register'
+  post 'mahjong/register_activity'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
