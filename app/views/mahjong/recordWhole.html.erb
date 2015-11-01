@@ -16,17 +16,18 @@
 			<td>게임 수</td>
 		</tr>
 		
-		<% @data.each do |d| %>
+		<% (0..@data.size-1).each do |i| %>
+			<% d = @data[i] %>
 			<% if d["amountGame"] != 0 %>
 				<tr>
-					<td>1</td>
+					<td><%= i+1 %></td>
 					<td><%= d["user"] %></td>
 					<td><%= d["score"] %></td>
 					<td><%= (d["score"]/d["amountGame"]).round(2) %></td>
-					<td><%= (d["first"].to_f/d["amountGame"]).round(2) %></td>
-					<td><%= (d["second"].to_f/d["amountGame"]).round(2) %></td>
-					<td><%= (d["third"].to_f/d["amountGame"]).round(2) %></td>
-					<td><%= (d["fourth"].to_f/d["amountGame"]).round(2) %></td>
+					<td><%= (d["first"].to_f/d["amountGame"]*100).round(2) %></td>
+					<td><%= (d["second"].to_f/d["amountGame"]*100).round(2) %></td>
+					<td><%= (d["third"].to_f/d["amountGame"]*100).round(2) %></td>
+					<td><%= (d["fourth"].to_f/d["amountGame"]*100).round(2) %></td>
 					<td><%= ((d["first"]+ d["second"]).to_f/d["amountGame"]).round(2) %></td>
 					<td><%= d["amountGame"] %></td>
 				</tr>

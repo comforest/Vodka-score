@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'mahjong/recordWhole'
-
+  
+  root :to => 'mahjong#recordWhole#month'
+  
+  get 'mahjong/recordWhole/:id' , to: 'mahjong#recordWhole'
   get 'mahjong/recordPerson'
 
   get 'mahjong/recordWrite'
